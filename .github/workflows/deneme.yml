@@ -1,4 +1,4 @@
-name: finalcsv_creator
+name: deneme
 
 on:
   schedule:
@@ -21,5 +21,5 @@ jobs:
           python-version: '3.10'
       - name: Install requirements
         run: pip3 install -r requirements.txt
-      - name: Run finalcsv_creator
-        run: python finalcsv_creator.py
+      - name: Run deneme
+        run: python deneme.py
