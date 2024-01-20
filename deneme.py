@@ -4,4 +4,4 @@ df = pd.DataFrame({'name': ['Raphael', 'Donatello'],
                    'mask': ['red', 'purple'],
                    'weapon': ['sai', 'bo staff']})
   
-df.to_csv('fotmob_csv/out.csv')
+df.to_csv('./out.csv')
