@@ -1,25 +1,38 @@
 name: deneme
 
 on:
+  # run every 6 hours
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 */6 * * *"
+  # run when manually triggered
   workflow_dispatch:
-
-env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  # run when this file is changed
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/deneme.yml"  # change to be the path to this file
 
 jobs:
-  scrape-latest:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2.0.0
-        with:
-          python-version: '3.10'
-      - name: Install requirements
-        run: pip3 install -r requirements.txt
-      - name: Run deneme
-        run: python deneme.py
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ${GITHUB_WORKSPACE}/requirements.txt  # if you have a requirements.txt file
+
+    - name: deneme
+      run: python deneme.py  # change to be the path to your script
+
+    - name: Add and commit
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: GitHub Actions
+        author_email: 41898282+github-actions[bot]@users.noreply.github.com
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        message: "chore: Update file"
+        add: "*.csv"
