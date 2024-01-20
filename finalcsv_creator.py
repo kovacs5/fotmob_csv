@@ -38,8 +38,9 @@ for i in range(len(maclar)):
         league_season = str(lig_df["parentLeagueSeason"].iloc[0])
         df2["league_name"] = league_name
         df2["league_season"] = league_season
+        df2["match_id"] = match_id
         df3.append(df2)
 
 final_df = pd.concat(df3)
 
-final_df.to_csv("csv/stsl_final.csv", encoding="utf-8-sig")
+final_df.to_csv("stsl_final.csv", encoding="utf-8-sig")
