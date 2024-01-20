@@ -3,7 +3,7 @@ import os
 
 df = pd.DataFrame({'name': ['Raphael', 'Donatello'],
                    'mask': ['red', 'purple'],
-                   'weapon': ['sai', 'bo staff']})3
+                   'weapon': ['sai', 'bo staff']})
 
 os.makedirs('csv', exist_ok=True)  
 df.to_csv('csv/out.csv')
