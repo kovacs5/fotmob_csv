@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 def write_attendance():
-  user = input()
+  user = "kovacs5"
   path = "./generated_files/" + user + '/'
 
   if not os.path.exists(path):
