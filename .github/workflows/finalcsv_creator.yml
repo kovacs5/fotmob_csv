@@ -1,9 +1,9 @@
 name: finalcsv_creator
 
 on:
-  # run every 6 hours
+  
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/5 * * * *"
   # run when manually triggered
   workflow_dispatch:
   # run when this file is changed
