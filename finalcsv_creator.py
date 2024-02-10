@@ -34,6 +34,8 @@ while i < len(df):
     df2["match_id"] = match_id
     df3.append(df2)
 
+    i += 1
+
 final_df = pd.concat(df3)
 
 final_df.to_csv("stsl_final.csv", encoding="utf-8-sig")
